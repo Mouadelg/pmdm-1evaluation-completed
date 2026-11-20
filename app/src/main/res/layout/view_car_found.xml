@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/car_info_backround">
+    android:background="@drawable/car_info_backround"
+    android:layout_margin="30dp">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -13,21 +14,31 @@
         android:src="@drawable/tesla_car"
         android:layout_gravity="center"
         android:background="@drawable/car_info_backround"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
         android:background="@drawable/car_info_box_backround"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="50dp"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:text="MARCA"
-            android:textSize="100dp"
-            android:layout_marginStart="50dp"
+            android:text="Marca"
+            android:textSize="15sp"
             />
 
         <TextView
@@ -35,26 +46,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CAR NAME"
-            android:textSize="100dp"
+            android:textSize="25sp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:layout_marginStart="50dp"
             android:fontFamily="monospace"/>
         <View
-            android:layout_margin="50dp"
-            android:padding="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+
             android:layout_width="wrap_content"
-            android:layout_height="10dp"
+            android:layout_height="5dp"
             android:background="#6B858282"
+            android:backgroundTint="#33858282"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:text="MARCA"
-            android:textSize="100dp"
-            android:layout_marginStart="50dp"
+            android:text="Model"
+            android:textSize="15sp"
             />
 
         <TextView
@@ -62,37 +73,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CAR MODEL"
-            android:textSize="100dp"
+            android:textSize="25sp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:layout_marginStart="50dp"
             android:fontFamily="monospace"/>
         <View
-            android:layout_margin="50dp"
-            android:padding="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="10dp"
+            android:layout_height="5dp"
             android:background="#6B858282"
+            android:backgroundTint="#33858282"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:text="CAR PLATE"
-            android:textSize="100dp"
-            android:layout_marginStart="50dp"
+            android:text="Matricula"
+            android:textSize="15sp"
             />
 
         <TextView
             android:id="@+id/car_plate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CAR NAME"
-            android:textSize="100dp"
+            android:text="CAR PLATE"
+            android:textSize="25sp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:layout_marginStart="50dp"
             android:fontFamily="monospace"/>
 
 

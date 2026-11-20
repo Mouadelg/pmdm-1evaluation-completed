@@ -26,12 +26,12 @@ class CarViewModel(
     val uiState: LiveData<UiState> = _uiState
 
 
-    class UiState(
-        hasError: Boolean = false,
-        car: Car?
+    data class UiState(
+        val hasError: Boolean = false,
+        val car: Car?
     )
 
-    private fun loadCarById(id: String) {
+     fun loadCarById(id: String) {
         _uiState.value = UiState(
             car = getCarByIdUseCase.invoke(id)
         )
