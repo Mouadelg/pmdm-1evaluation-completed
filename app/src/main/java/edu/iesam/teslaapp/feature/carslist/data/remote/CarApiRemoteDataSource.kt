@@ -6,7 +6,7 @@ import edu.iesam.teslaapp.feature.carslist.domain.Car
 class CarApiRemoteDataSource {
     fun getAll(): List<Car> {
         // All have the same car picture
-        val imageSource = "@drawable/tesla_car.xml"
+        val imageSource = R.drawable.tesla_car
         return listOf(
             Car("1", "TeslaA", "2011", "AAA111", imageSource),
             Car("2", "TeslaB", "2012", "BBB222", imageSource),

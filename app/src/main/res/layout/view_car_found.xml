@@ -7,11 +7,12 @@
     android:layout_margin="30dp">
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:id="@+id/car_image"
+        android:layout_width="match_parent"
+        android:scaleType="fitCenter"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:padding="20dp"
-        android:src="@drawable/tesla_car"
         android:layout_gravity="center"
         android:background="@drawable/car_info_backround"
         android:layout_marginTop="20dp"

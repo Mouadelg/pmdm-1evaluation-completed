@@ -5,19 +5,20 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.ViewModel
+import edu.iesam.marvelapp.core.serialization.GsonJsonSerializer
 import edu.iesam.teslaapp.R
+import edu.iesam.teslaapp.feature.carslist.data.local.CarXmlLocalDataSource
 import edu.iesam.teslaapp.feature.carslist.data.remote.CarApiRemoteDataSource
 import edu.iesam.teslaapp.feature.carslist.data.repository.CarDataRepository
-import edu.iesam.teslaapp.feature.carslist.domain.CarRepository
+import edu.iesam.teslaapp.feature.carslist.domain.Car
 import edu.iesam.teslaapp.feature.carslist.domain.GetCarByIdUseCase
 import edu.iesam.teslaapp.feature.carslist.presentation.CarViewModel
 
@@ -25,7 +26,10 @@ class CarsListActivity : AppCompatActivity() {
 
     private val viewModel: CarViewModel by viewModels {
         CarViewModel.factory(
-            GetCarByIdUseCase(CarDataRepository(CarApiRemoteDataSource()))
+            GetCarByIdUseCase(CarDataRepository(CarApiRemoteDataSource(),
+                CarXmlLocalDataSource
+            (this,
+                    GsonJsonSerializer.create<List<Car>>())))
         )
     }
 
@@ -39,7 +43,7 @@ class CarsListActivity : AppCompatActivity() {
             insets
         }
 
-        viewModel.uiState.observe(this){ uiState ->
+        viewModel.uiState.observe(this) { uiState ->
             mostrarUiState(uiState)
         }
 
@@ -72,6 +76,7 @@ class CarsListActivity : AppCompatActivity() {
             labelCarView.findViewById<TextView>(R.id.car_name).text = uiState.car.brand
             labelCarView.findViewById<TextView>(R.id.car_model).text = uiState.car.model
             labelCarView.findViewById<TextView>(R.id.car_plate).text = uiState.car.plate
+            labelCarView.findViewById<ImageView>(R.id.car_image).setImageResource(uiState.car.carImageSrc)
             labelViewCarNotFound.visibility = View.GONE
             labelCarView.visibility = View.VISIBLE
         }
